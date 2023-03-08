@@ -8,7 +8,7 @@ let index = require('./routes/index');
 let image = require('./routes/image');
 
 // connecting the database
-let mongodb_url = 'mongodb://localhost:27017/';
+let mongodb_url = 'mongodb://SGumbe:Ziza2015.@ac-yk8mriz-shard-00-00.dxfb7mn.mongodb.net:27017,ac-yk8mriz-shard-00-01.dxfb7mn.mongodb.net:27017,ac-yk8mriz-shard-00-02.dxfb7mn.mongodb.net:27017/?ssl=true&replicaSet=atlas-1d1hbr-shard-0&authSource=admin&retryWrites=true&w=majority';
 let dbName = 'darkroom';
 mongoose.connect(`${mongodb_url}${dbName}`,{ useNewUrlParser: true , useUnifiedTopology: true }, (err)=>{
     if (err) console.log(err)
