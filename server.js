@@ -13,7 +13,7 @@ const app = express();
 
 // connecting the database
 
-const MONGODB_URI = process.env.MONGODB_URI || config.mongoURI[app.settings.env]
+const MONGODB_URI = 'mongodb://Ziza2015.@ac-yk8mriz-shard-00-00.dxfb7mn.mongodb.net:27017,ac-yk8mriz-shard-00-01.dxfb7mn.mongodb.net:27017,ac-yk8mriz-shard-00-02.dxfb7mn.mongodb.net:27017/?ssl=true&replicaSet=atlas-1d1hbr-shard-0&authSource=admin&retryWrites=true&w=majority'
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true  },(err)=>{
     if (err) {
         console.log(err)
