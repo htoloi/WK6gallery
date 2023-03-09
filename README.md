@@ -2,4 +2,4 @@
 Testing commits
 Testing the switch
 Testing the merged branch
-Testing request timeout on render
+Resolving render time out error
