@@ -9,7 +9,7 @@ pipeline {
         }
    post{
         always{
-            emailext: "gumbe12@gmail.com",
+            emailext body: "gumbe12@gmail.com",
             subject: "Test Email",
             body: "Test"
         }
