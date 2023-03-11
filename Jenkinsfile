@@ -1,21 +1,24 @@
 pipeline {
     agent any
-    stages {
-        stage('Hello') {
-            steps {
-                echo "Hello world"
-                    }
-            }
+        environment {
+
+        EMAIL_BODY = 
+
+        """
+            <p>EXECUTED: Job <b>\'${env.JOB_NAME}:${env.BUILD_NUMBER})\'</b></p>
+            <p>
+            View console output at 
+            "<a href="${env.BUILD_URL}">${env.JOB_NAME}:${env.BUILD_NUMBER}</a>"
+            </p> 
+            <p><i>(Build log is attached.)</i></p>
+        """
+
+        EMAIL_SUBJECT_SUCCESS = "Status: 'SUCCESSFUL' -Job \'${env.JOB_NAME}:${env.BUILD_NUMBER}\'" 
+
+        EMAIL_SUBJECT_FAILURE = "Status: 'FAILED' -Job \'${env.JOB_NAME}:${env.BUILD_NUMBER}\'" 
+
+        EMAIL_RECEPIENT = 'gumbe12@gmail.com'
         }
-   post{
-        always{
-            emailext body: "gumbe12@gmail.com",
-            subject: "Test Email",
-            body: "Test"
-        }
-    }
-}
-    
     tools {nodejs "node"}
 
     stages {
@@ -57,3 +60,4 @@ pipeline {
             }
         }
     }
+}
