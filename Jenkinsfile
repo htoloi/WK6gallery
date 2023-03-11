@@ -19,13 +19,7 @@ pipeline {
 
         EMAIL_RECEPIENT = 'gumbe12@gmail.com'
         }
-        post{
-        always{
-            mail to: "gumbe12@gmail.com",
-            subject: "Test Email",
-            body: "Test"
-        }
-    }
+        
     tools {nodejs "node"}
 
     stages {
