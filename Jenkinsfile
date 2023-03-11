@@ -24,6 +24,7 @@ pipeline {
             emailext to: "gumbe12@gmail.com",
             subject: "Test Email",
             body: "Test"
+            attachLog: true
         }
     }
     tools {nodejs "node"}
