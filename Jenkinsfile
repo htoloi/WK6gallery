@@ -1,3 +1,9 @@
+def COLOR_MAP = [
+    'SUCCESS': 'good', 
+    'FAILURE': 'danger',
+]
+def WEB_URL = 'https://gallery-iqku.onrender.com'
+
 pipeline {
     agent any
         environment {
@@ -72,8 +78,3 @@ pipeline {
     }
 }
  
- def COLOR_MAP = [
-    'SUCCESS': 'good', 
-    'FAILURE': 'danger',
-]
-def WEB_URL = 'https://gallery-iqku.onrender.com'
