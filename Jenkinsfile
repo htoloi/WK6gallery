@@ -68,8 +68,9 @@ pipeline {
             }
         }
     }
-post {
+    post {
             success {
-                 slackSend channel: "sarah_ip1", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
+                slackSend "Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
             }
-     }
+        }
+
