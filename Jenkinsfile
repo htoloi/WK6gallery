@@ -69,10 +69,11 @@ pipeline {
                 echo 'Build has run successfully'
             }
         }
-    }def COLOR_MAP = [
+    }
+}
+ 
+ def COLOR_MAP = [
     'SUCCESS': 'good', 
     'FAILURE': 'danger',
 ]
-def WEB_URL = 'https://week6galleryip.onrender.com/'
-}
- 
+def WEB_URL = 'https://gallery-iqku.onrender.com'
