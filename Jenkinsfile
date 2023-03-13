@@ -68,15 +68,27 @@ pipeline {
             }
         }
     }
+ }
+    post {
+        success {
+            emailext attachLog: true,
+                body: EMAIL_BODY,
 
-    post {
-            success {
-                 slackSend channel: "sarah_ip1", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
-            }
-    post {
-    failure {
-        slackSend failOnError:true message:"Build failed  - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+                subject: EMAIL_SUBJECT_SUCCESS,
+
+                to: EMAIL_RECEPIENT
+        }
+
+        failure {
+            emailext attachLog: true,
+                body: EMAIL_BODY,
+
+                subject: EMAIL_SUBJECT_FAILURE,
+
+                to: EMAIL_RECEPIENT
+        }
+         always{
+            slackSend channel: 'sarah_ip1'
+            }   
+        
     }
-}
-     }
-}
