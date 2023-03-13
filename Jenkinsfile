@@ -24,10 +24,13 @@ pipeline {
             emailext to: "gumbe12@gmail.com",
             subject: "jenkins build:${currentBuild.currentResult}: ${env.JOB_NAME}",
             body: "${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here: ${env.BUILD_URL}"
-            slackSend channel: "sarah_ip1", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)" 
-            
+            slackSend channel: "sarah_ip1", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+            slackSend channel: "sarah_ip1",  message: "https://week6galleryip.onrender.com/"
         }
     }
+}
+        
+    
     tools {nodejs "node"}
 
     stages {
@@ -69,5 +72,5 @@ pipeline {
             }
         }
     }
- }
+ 
     
