@@ -28,9 +28,7 @@ pipeline {
             
         }
     }
-}
-        
-    
+
     tools {nodejs "node"}
 
     stages {
@@ -72,5 +70,6 @@ pipeline {
             }
         }
     }
+}
  
     
