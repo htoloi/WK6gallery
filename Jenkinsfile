@@ -68,4 +68,6 @@ pipeline {
             }
         }
     }
-}
+}always{
+            slackSend channel: 'sarah_ip1'
+            } 
