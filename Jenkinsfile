@@ -2,7 +2,7 @@ def COLOR_MAP = [
     'SUCCESS': 'good', 
     'FAILURE': 'danger',
 ]
-def WEB_URL = 'https://gallery-iqku.onrender.com'
+def WEB_URL = 'https://week6galleryip.onrender.com/'
 
 pipeline {
     agent any
