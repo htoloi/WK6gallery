@@ -8,32 +8,7 @@ pipeline {
     agent any
         environment {
 
-        EMAIL_BODY = 
-
-        """
-            <p>EXECUTED: Job <b>\'${env.JOB_NAME}:${env.BUILD_NUMBER})\'</b></p>
-            <p>
-            View console output at 
-            "<a href="${env.BUILD_URL}">${env.JOB_NAME}:${env.BUILD_NUMBER}</a>"
-            </p> 
-            <p><i>(Build log is attached.)</i></p>
-        """
-
-        EMAIL_SUBJECT_SUCCESS = "Status: 'SUCCESSFUL' -Job \'${env.JOB_NAME}:${env.BUILD_NUMBER}\'" 
-
-        EMAIL_SUBJECT_FAILURE = "Status: 'FAILED' -Job \'${env.JOB_NAME}:${env.BUILD_NUMBER}\'" 
-
-        EMAIL_RECEPIENT = 'gumbe12@gmail.com'
-        }
-        post{
-        always{
-            emailext to: "gumbe12@gmail.com",
-            subject: "jenkins build:${currentBuild.currentResult}: ${env.JOB_NAME}",
-            body: "${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here: ${env.BUILD_URL}"
-            slackSend channel: "sarah_ip1",color: COLOR_MAP[currentBuild.currentResult], message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
-            
-        }
-    }
+        
 
     tools {nodejs "node"}
 
@@ -77,4 +52,16 @@ pipeline {
         }
     }
 }
- 
+
+ post {
+        always {
+            slackSend channel: '#sarah_ip1',
+                color: COLOR_MAP[currentBuild.currentResult],
+                message: "*${currentBuild.currentResult}:* Job ${JOB_NAME} build ${BUILD_NUMBER} \n link to the application ${WEB_URL} \n More information can be found at: ${BUILD_URL}HTML_20Report/"
+            
+            emailext subject: "Build ${currentBuild.currentResult}: Job ${JOB_NAME} build ${BUILD_NUMBER}",
+                body: "The build for Job ${JOB_NAME} build ${BUILD_NUMBER} a ${currentBuild.currentResult}. \n link to the application ${WEB_URL} \n More information can be found at: ${BUILD_URL}HTML_20Report/",
+                recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']]
+         }
+    }
+}
