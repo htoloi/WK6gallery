@@ -73,4 +73,3 @@ post {
                  slackSend channel: "sarah_ip1", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
             }
      }
-}
