@@ -7,3 +7,4 @@ Testing connection string
 Testing email
 testing commits
 testing new webhook
+Testing if server is working
