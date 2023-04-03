@@ -23,14 +23,14 @@ pipeline {
 
         EMAIL_SUBJECT_FAILURE = "Status: 'FAILED' -Job \'${env.JOB_NAME}:${env.BUILD_NUMBER}\'" 
 
-        EMAIL_RECEPIENT = 'gumbe12@gmail.com'
+        EMAIL_RECEPIENT = 'toloih@gmail.com'
         }
         post{
         always{
-            emailext to: "gumbe12@gmail.com",
+            emailext to: "toloih@gmail.com",
             subject: "jenkins build:${currentBuild.currentResult}: ${env.JOB_NAME}",
             body: "${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here: ${env.BUILD_URL}"
-            slackSend channel: "sarah_ip1",color: COLOR_MAP[currentBuild.currentResult], message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+            slackSend channel: "",color: COLOR_MAP[currentBuild.currentResult], message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
             
         }
     }
@@ -45,7 +45,7 @@ pipeline {
         }
         stage('Clone github repository') {
             steps {
-                git url: 'https://github.com/sarahgumbe/WEEK6GALLERY', branch: 'master'
+                git url: 'https://github.com/htoloi/WK6gallery.git', branch: 'master'
             }
         }
         stage('Install dependencies') {
