@@ -13,7 +13,7 @@ const app = express();
 
 // connecting the database
 
-const MONGODB_URI = 'mongodb+srv://toloih:76392923@htcluster.ltzaolu.mongodb.net/?retryWrites=true&w=majority'
+const MONGODB_URI = 'mongodb+srv://rwambui:12345@darkroom.ylwfk0a.mongodb.net/?retryWrites=true&w=majority'
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true  },(err)=>{
     if (err) {
         console.log(err)
